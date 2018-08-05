@@ -1,0 +1,80 @@
+﻿<Controls:MetroWindow x:Class="MinecraftOutClientWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MinecraftOutClientWPF"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        Title="MinecraftOutClient WPF" Height="450" Width="800" GlowBrush="{DynamicResource AccentColorBrush}" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" TitleCaps="False">
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="Button_About" Cursor="Hand" Click="Button_About_Click">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconFontAwesome Kind="InfoCircleSolid" />
+                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="关于" />
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="794" TabStripPlacement="Bottom">
+            <TabItem x:Name="TabItem_Start" Header="开始" Controls:ControlsHelper.HeaderFontSize="6">
+                <Grid>
+                    <TextBox x:Name="TextBox_IP" HorizontalAlignment="Left" Height="40" Margin="244,170,0,0" TextWrapping="Wrap" Text="127.0.0.1" VerticalAlignment="Top" Width="210" FontFamily="Microsoft YaHei" FontSize="16" VerticalContentAlignment="Center" FontWeight="Bold"/>
+                    <TextBox x:Name="TextBox_Port" Height="40" Margin="470,170,0,0" TextWrapping="Wrap" Text="25565" VerticalAlignment="Top" VerticalContentAlignment="Center" FontFamily="Microsoft YaHei" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Width="80"/>
+                    <Label Content=":" HorizontalAlignment="Left" Height="40" Margin="457,170,0,0" VerticalAlignment="Top" Width="10" FontSize="24" Padding="0,3,0,0" HorizontalContentAlignment="Center"/>
+                    <Button x:Name="Button_Check" Margin="359,230,359,0" Style="{DynamicResource MetroCircleButtonStyle}"  Cursor="Hand" Padding="1" Background="{DynamicResource AccentColorBrush2}" BorderBrush="White" Height="70" VerticalAlignment="Top" Width="70" Click="Button_Check_Click">
+                        <iconPacks:PackIconOcticons Kind="Check" Width="30" Height="30" Foreground="White" Padding="0" Margin="0" HorizontalAlignment="Left" />
+                    </Button>
+                    <Label x:Name="Label_Tip" Content="请输入要查询的IP与端口" Height="55" Margin="0,100,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabItem_End" Header="结束" Controls:ControlsHelper.HeaderFontSize="6">
+                <Grid>
+                    <Label x:Name="Label_Server" Content="当前服务器:" Height="32" VerticalAlignment="Top" FontSize="20" VerticalContentAlignment="Center" Padding="5,0" HorizontalAlignment="Left" Width="746"/>
+                    <TextBox x:Name="TextBox_Info" Text="服务器Protocol版本:&#xD;&#xA;服务器游戏版本:&#xD;&#xA;服务器在线人数:&#xD;&#xA;服务器延迟:&#xD;&#xA;服务器MOTD:" Height="130" Margin="10,37,145,0" VerticalAlignment="Top" FontSize="14" Padding="0" IsReadOnly="True" TextWrapping="Wrap" FontFamily="Microsoft YaHei"/>
+                    <TabControl Height="229" Margin="10,172,10,0" VerticalAlignment="Top">
+                        <TabItem Header="玩家列表" Controls:ControlsHelper.HeaderFontSize="16">
+                            <Grid Background="White">
+                                <ListBox x:Name="ListBox_Player"/>
+                                <Grid x:Name="Grid_NoPlayer" Margin="146,34" Width="470">
+                                    <iconPacks:PackIconFontAwesome Kind="InfoCircleSolid" Height="80" Width="Auto" Margin="195,10,195,0" HorizontalAlignment="Stretch" Padding="3" />
+                                    <Label Content="当前无玩家" Height="40" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="20" HorizontalContentAlignment="Center"/>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                        <TabItem Header="模组列表" Controls:ControlsHelper.HeaderFontSize="16">
+                            <Grid Background="White">
+                                <ListBox x:Name="ListBox_Mods"/>
+                                <Grid x:Name="Grid_NoMods" Margin="146,34" Width="470">
+                                    <iconPacks:PackIconFontAwesome Kind="InfoCircleSolid" Height="80" Width="Auto" Margin="195,10,195,0" HorizontalAlignment="Stretch" Padding="3" />
+                                    <Label Content="当前无模组" Height="40" VerticalAlignment="Bottom" VerticalContentAlignment="Center" FontSize="20" HorizontalContentAlignment="Center"/>
+                                </Grid>
+                            </Grid>
+                        </TabItem>
+                    </TabControl>
+                    <Button x:Name="Button_Back" Margin="751,-3,-3,0" Style="{DynamicResource MetroCircleButtonStyle}"  Cursor="Hand" Padding="-2,1,1,1" Background="{DynamicResource AccentColorBrush2}" BorderBrush="White" Height="40" VerticalAlignment="Top" Width="40" Click="Button_Back_Click">
+                        <iconPacks:PackIconFontAwesome Kind="AngleLeftSolid" Foreground="White" />
+                    </Button>
+                    <Image x:Name="img_servericon" Height="130" Margin="0,37,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="130" Source="img/servericon.png" Stretch="UniformToFill"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabItem_About" Header="关于" Controls:ControlsHelper.HeaderFontSize="6">
+                <Grid>
+                    <Image Height="130" VerticalAlignment="Top" Source="img/servericon.png" Stretch="None" Margin="0,40,0,0"/>
+                    <Label Content="NullCraft Studio" Height="52" Margin="0,144,0,0" VerticalAlignment="Top" Foreground="#FF2BC7AC" FontSize="24" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                    <Label Content="制作:FastChen" Height="36" Margin="0,196,0,0" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="开源地址:https://github.com/FastChen/MinecraftOutClientWPF" Height="36" Margin="0,232,0,0" VerticalAlignment="Top" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="调用库:MinecraftOutClient" Height="36" Margin="0,268,0,0" VerticalAlignment="Top" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label Content="开源地址:https://github.com/Nsiso/MinecraftOutClient" Height="36" Margin="0,304,0,0" VerticalAlignment="Top" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Button x:Name="Button_BackHome" Margin="751,-3,-3,0" Style="{DynamicResource MetroCircleButtonStyle}"  Cursor="Hand" Padding="-2,1,1,1" Background="{DynamicResource AccentColorBrush2}" BorderBrush="White" Height="40" VerticalAlignment="Top" Width="40" Click="Button_BackHome_Click">
+                        <iconPacks:PackIconFontAwesome Kind="AngleLeftSolid" Foreground="White" />
+                    </Button>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Controls:MetroWindow>
+

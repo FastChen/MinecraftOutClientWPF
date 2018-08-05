@@ -1,0 +1,15 @@
+F:\C代码\NullCraft\服务器项目\MinecraftOutClientWPF\MinecraftOutClientWPF\obj\Debug\MinecraftOutClientWPF.csprojAssemblyReference.cache
+F:\C代码\NullCraft\服务器项目\MinecraftOutClientWPF\MinecraftOutClientWPF\obj\Debug\MainWindow.g.cs
+F:\C代码\NullCraft\服务器项目\MinecraftOutClientWPF\MinecraftOutClientWPF\obj\Debug\App.g.cs
+F:\C代码\NullCraft\服务器项目\MinecraftOutClientWPF\MinecraftOutClientWPF\obj\Debug\MinecraftOutClientWPF_MarkupCompile.cache
+F:\C代码\NullCraft\服务器项目\MinecraftOutClientWPF\MinecraftOutClientWPF\obj\Debug\MinecraftOutClientWPF_MarkupCompile.lref
+F:\C代码\NullCraft\服务器项目\MinecraftOutClientWPF\MinecraftOutClientWPF\bin\Debug\MinecraftOutClientWPF.exe
+F:\C代码\NullCraft\服务器项目\MinecraftOutClientWPF\MinecraftOutClientWPF\bin\Debug\MinecraftOutClientWPF.pdb
+F:\C代码\NullCraft\服务器项目\MinecraftOutClientWPF\MinecraftOutClientWPF\obj\Debug\App.baml
+F:\C代码\NullCraft\服务器项目\MinecraftOutClientWPF\MinecraftOutClientWPF\obj\Debug\MainWindow.baml
+F:\C代码\NullCraft\服务器项目\MinecraftOutClientWPF\MinecraftOutClientWPF\obj\Debug\MinecraftOutClientWPF.g.resources
+F:\C代码\NullCraft\服务器项目\MinecraftOutClientWPF\MinecraftOutClientWPF\obj\Debug\MinecraftOutClientWPF.Properties.Resources.resources
+F:\C代码\NullCraft\服务器项目\MinecraftOutClientWPF\MinecraftOutClientWPF\obj\Debug\MinecraftOutClientWPF.csproj.GenerateResource.cache
+F:\C代码\NullCraft\服务器项目\MinecraftOutClientWPF\MinecraftOutClientWPF\obj\Debug\MinecraftOutClientWPF.csproj.CoreCompileInputs.cache
+F:\C代码\NullCraft\服务器项目\MinecraftOutClientWPF\MinecraftOutClientWPF\obj\Debug\MinecraftOutClientWPF.exe
+F:\C代码\NullCraft\服务器项目\MinecraftOutClientWPF\MinecraftOutClientWPF\obj\Debug\MinecraftOutClientWPF.pdb
