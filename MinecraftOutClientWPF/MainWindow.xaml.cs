@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using MahApps.Metro.Controls;
 using MinecraftOutClient.Modules;
 
@@ -21,15 +22,18 @@ namespace MinecraftOutClientWPF
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
+        public DispatcherTimer mDataTimer = null;
         public MainWindow()
         {
             InitializeComponent();
             TabItem_Start.Visibility = Visibility.Hidden;
             TabItem_End.Visibility = Visibility.Hidden;
             TabItem_About.Visibility = Visibility.Hidden;
+            mDataTimer = new DispatcherTimer();
+            mDataTimer.Tick += new EventHandler(DataTimer_Tick);
+            mDataTimer.Interval = TimeSpan.FromSeconds(5);
         }
-
-        private void Button_Check_Click(object sender, RoutedEventArgs e)
+        public void GetServerInfo()
         {
             try
             {
@@ -40,7 +44,7 @@ namespace MinecraftOutClientWPF
                 ServerInfo info = new ServerInfo(TextBox_IP.Text, int.Parse(TextBox_Port.Text));
                 //获取服务器信息
                 info.StartGetServerInfo();
-                TextBox_Info.Text = "服务器Protocol版本:" + info.ProtocolVersion + "\n服务器游戏版本:" + info.GameVersion + "\n服务器在线人数:" + info.MaxPlayerCount + "/" + info.CurrentPlayerCount + "\n服务器延迟:" + info.Ping + "\n服务器MOTD:" + info.MOTD;
+                TextBox_Info.Text = "服务器Protocol版本:" + info.ProtocolVersion + "\n服务器游戏版本:" + info.GameVersion + "\n服务器在线人数:" + info.CurrentPlayerCount + "/" + info.MaxPlayerCount + "\n服务器延迟:" + info.Ping + "\n服务器MOTD:" + info.MOTD;
                 //获取玩家
                 if (info.OnlinePlayersName != null && info.OnlinePlayersName.Any())
                 {
@@ -79,7 +83,6 @@ namespace MinecraftOutClientWPF
                 {
                     img_servericon.Source = new BitmapImage(new Uri("pack://application:,,,/img/servericon.png"));
                 }
-                TabItem_End.IsSelected = true;
             }
             catch
             {
@@ -87,22 +90,36 @@ namespace MinecraftOutClientWPF
                 TabItem_Start.IsSelected = true;
                 Grid_NoPlayer.Visibility = Visibility.Visible;
                 Grid_NoMods.Visibility = Visibility.Visible;
+                mDataTimer.Stop();
             }
+        }
+        public void DataTimer_Tick(object sender, EventArgs e)
+        {
+            GetServerInfo();
+        }
+        private void Button_Check_Click(object sender, RoutedEventArgs e)
+        {
+            TabItem_End.IsSelected = true;
+            GetServerInfo();
+            mDataTimer.Start();
         }
 
         private void Button_Back_Click(object sender, RoutedEventArgs e)
         {
             TabItem_Start.IsSelected = true;
+            mDataTimer.Stop();
         }
 
         private void Button_About_Click(object sender, RoutedEventArgs e)
         {
             TabItem_About.IsSelected = true;
+            mDataTimer.Stop();
         }
 
         private void Button_BackHome_Click(object sender, RoutedEventArgs e)
         {
             TabItem_Start.IsSelected = true;
+            mDataTimer.Stop();
         }
     }
 }
